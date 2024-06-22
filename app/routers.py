@@ -61,7 +61,7 @@ async def login(
     access_token = create_access_token(user.email)
     refresh_token = create_refresh_token(user.email)
     response = JSONResponse({"access_token": access_token}, status_code=200)
-    response.set_cookie(key="refresh-Token", value=refresh_token)
+    response.set_cookie(key="refresh-Token", value=refresh_token, httponly=True)
     return response
 
 
